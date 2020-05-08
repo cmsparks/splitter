@@ -69,10 +69,10 @@ def start_stream():
     audio_pipe_enabled = True
     print("\033[1mSplitting audio stream...")
     print("\033[1mPress ctrl-c to stop.")
-    audio_stream_in = controller.open(RATE, CHANNELS, FORMAT, input=True, frames_per_buffer=FRAMES_PER_BUFFER)
+    audio_stream_in = ctl.open(RATE, CHANNELS, FORMAT, input=True, frames_per_buffer=FRAMES_PER_BUFFER)
     outputstreams = []
     for i in output_indexes:
-        audio_stream_out = controller.open(RATE, CHANNELS, FORMAT, output=True, output_device_index=i)
+        audio_stream_out = ctl.open(RATE, CHANNELS, FORMAT, output=True, output_device_index=i)
         outputstreams.append(audio_stream_out)
 
     while True:
